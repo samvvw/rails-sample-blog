@@ -306,6 +306,8 @@ Devise.setup do |config|
 
 config.navigational_formats = ['*/*', :html, :turbo_stream]
 
+config.scoped_views = true
+
   # ==> Configuration for :registerable
 
   # When set to false, does not sign a user in automatically after their password is

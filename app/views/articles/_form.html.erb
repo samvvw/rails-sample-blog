@@ -1,14 +1,14 @@
 <%= form_with model: @article do |form| %>
 <div>
     <%= form.label :title %><br />
-    <%= form.text_field :title %> 
+    <%= form.text_field :title, :data => {'cy' => "title-field"} %> 
     <% @article.errors.full_messages_for(:title).each do |message| %>
     <div><%= message %></div>
     <% end %>
 </div>
 <div>
     <%= form.label :body %><br />
-    <%= form.text_area :body %> 
+    <%= form.text_area :body, data: {'cy' => "body-field"}  %> 
     <% @article.errors.full_messages_for(:body).each do |message| %>
     <div><%= message %></div>
     <% end %>
@@ -16,9 +16,9 @@
 
 <div>
   <%= form.label :status %><br>
-  <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+  <%= form.select :status, ['public', 'private', 'archived'],{ selected: 'public'}, data:{ 'cy': 'status-select-field'}  %>
 </div>
 
-<div><%= form.submit %></div>
+<div><%= form.submit nil, data: {'cy': "submit-button"}%></div>
 
 <% end %>

@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @author = User.find(@article.user_id)
   end
 
   def new
@@ -15,7 +16,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
+    @user = User.find(current_user.id)
+    @article = @user.articles.new(article_params)
 
     if @article.save
       redirect_to @article
@@ -42,6 +44,14 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
     redirect_to root_path, status: :see_other
+  end
+
+  def destroy_all
+    if Rails.env.development? || Rails.env.test? 
+      Article.destroy_all
+      User.destroy_all
+      redirect_to root_path, status: :see_other
+    end
   end
 
   private

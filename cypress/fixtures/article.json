@@ -1,0 +1,14 @@
+{
+    "article1": {
+        "title": "First Article Title",
+        "body": "Fixtures are a great way to mock data for responses to routes"
+    },
+    "article2": {
+        "title": "Second Article Title",
+        "body": "Fixtures are a great way to mock data for responses to routes"
+    },
+    "article3": {
+        "title": "Third Article Title",
+        "body": "Fixtures are a great way to mock data for responses to routes"
+    }
+}
